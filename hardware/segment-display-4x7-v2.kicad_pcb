@@ -73,9 +73,9 @@
     (pad_size 1.8 1.8)
     (pad_drill 0.8)
     (pad_to_mask_clearance 0)
-    (aux_axis_origin 42.9 54.8)
-    (grid_origin 42.9 54.8)
-    (visible_elements FFFFEFBF)
+    (aux_axis_origin 176.9 165.9)
+    (grid_origin 176.9 165.9)
+    (visible_elements FFFFFFBF)
     (pcbplotparams
       (layerselection 0x010fc_80000001)
       (usegerberextensions true)
