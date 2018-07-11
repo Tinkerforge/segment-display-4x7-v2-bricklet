@@ -29,6 +29,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:segment-display-4x7-v2-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -511,9 +512,9 @@ F 3 "" H 2750 6000 60  0001 C CNN
 	1    2750 6000
 	1    0    0    -1  
 $EndComp
-Text GLabel 7250 2050 0    47   Input ~ 0
+Text GLabel 6750 2050 0    47   Input ~ 0
 SDA
-Text GLabel 7250 1950 0    47   Input ~ 0
+Text GLabel 6750 1950 0    47   Input ~ 0
 SCL
 $Comp
 L PCA9306 U8
@@ -759,9 +760,9 @@ Wire Wire Line
 Wire Wire Line
 	4000 5450 3700 5450
 Wire Wire Line
-	7250 2050 7750 2050
+	6750 2050 7750 2050
 Wire Wire Line
-	7750 1950 7250 1950
+	6750 1950 7750 1950
 Wire Wire Line
 	7550 1750 7750 1750
 Wire Wire Line
@@ -852,4 +853,37 @@ Wire Wire Line
 Wire Wire Line
 	3750 4750 3750 4800
 NoConn ~ 4000 5750
+$Comp
+L R_PACK4 RP3
+U 1 1 5B45C79E
+P 7000 1400
+F 0 "RP3" H 7000 1850 50  0000 C CNN
+F 1 "2k2" H 7000 1350 50  0000 C CNN
+F 2 "kicad-libraries:4X0402" H 7000 1400 50  0001 C CNN
+F 3 "" H 7000 1400 50  0000 C CNN
+	1    7000 1400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7050 1600 7050 2050
+Connection ~ 7050 2050
+Wire Wire Line
+	7350 1600 7350 1950
+Connection ~ 7350 1950
+Wire Wire Line
+	7350 1200 7350 1150
+Wire Wire Line
+	7050 1150 7650 1150
+Connection ~ 7650 1150
+Wire Wire Line
+	7250 1200 7250 1150
+Connection ~ 7350 1150
+Wire Wire Line
+	7150 1200 7150 1150
+Connection ~ 7250 1150
+Wire Wire Line
+	7050 1200 7050 1150
+Connection ~ 7150 1150
+NoConn ~ 7150 1600
+NoConn ~ 7250 1600
 $EndSCHEMATC
