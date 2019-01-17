@@ -1,15 +1,16 @@
 EESchema Schematic File Version 4
+LIBS:segment-display-4x7-v2-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Segment Display 4x7 Bricklet"
-Date "2018-06-25"
+Date "2019-01-17"
 Rev "2.0"
 Comp "Tinkerforge GmbH"
 Comment1 "Licensed under CERN OHL v.1.1"
-Comment2 "Copyright (©) 2018, L.Lauer <lukas@tinkerforge.com>"
+Comment2 "Copyright (©) 2018, B.Nordmeyer <bastian@tinkerforge.com>"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -60,14 +61,14 @@ F 3 "" H 11050 6200 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tinkerforge:SEGMENT_4X7 U3
+L tinkerforge:SEGMENT_4X7_2 U3
 U 1 1 51FF795E
-P 10400 4050
-F 0 "U3" H 10250 4100 60  0000 C CNN
-F 1 "SEGMENT_4X7" H 10400 2450 60  0000 C CNN
-F 2 "kicad-libraries:SEGMENT_4X7" H 10400 4050 60  0001 C CNN
-F 3 "" H 10400 4050 60  0000 C CNN
-	1    10400 4050
+P 10400 3950
+F 0 "U3" H 10250 4000 60  0000 C CNN
+F 1 "SEGMENT_4X7" H 10400 2350 60  0000 C CNN
+F 2 "kicad-libraries:SEGMENT_4X7" H 10400 3950 60  0001 C CNN
+F 3 "" H 10400 3950 60  0000 C CNN
+	1    10400 3950
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -83,13 +84,13 @@ F 3 "" H 8350 4750 60  0000 C CNN
 $EndComp
 NoConn ~ 7800 4450
 NoConn ~ 7800 4550
-Text GLabel 7700 4950 0    47   Input ~ 0
+Text GLabel 7700 5350 0    47   Input ~ 0
 COM1
-Text GLabel 7700 5050 0    47   Input ~ 0
-COM2
-Text GLabel 7700 5150 0    47   Input ~ 0
-COM3
 Text GLabel 7700 5250 0    47   Input ~ 0
+COM2
+Text GLabel 7700 5050 0    47   Input ~ 0
+COM3
+Text GLabel 7700 4950 0    47   Input ~ 0
 COM4
 Text GLabel 9800 4550 0    47   Input ~ 0
 COM1
@@ -99,10 +100,6 @@ Text GLabel 9800 4350 0    47   Input ~ 0
 COM3
 Text GLabel 9800 4450 0    47   Input ~ 0
 COM2
-NoConn ~ 8950 5350
-NoConn ~ 10800 4800
-NoConn ~ 10800 4700
-NoConn ~ 10800 4600
 $Comp
 L tinkerforge:GND #PWR01
 U 1 1 51FF7D33
@@ -191,7 +188,6 @@ F 3 "" H 7000 5000 60  0001 C CNN
 	1    7000 5000
 	-1   0    0    1   
 $EndComp
-NoConn ~ 7800 5350
 $Comp
 L tinkerforge:GND #PWR06
 U 1 1 4C5FCF5E
@@ -407,7 +403,7 @@ SCL
 Text GLabel 3700 3200 0    47   Output ~ 0
 SDA
 $Comp
-L CONN_01X01 P2
+L tinkerforge:CONN_01X01 P2
 U 1 1 5B317B13
 P 3500 3000
 F 0 "P2" H 3500 3100 50  0000 C CNN
@@ -583,57 +579,9 @@ Wire Wire Line
 Wire Wire Line
 	10050 4350 9800 4350
 Wire Wire Line
-	9800 4450 9900 4450
-Wire Wire Line
 	10050 4550 9800 4550
 Wire Wire Line
-	10050 4700 9400 4700
-Wire Wire Line
-	9400 4700 9400 4550
-Wire Wire Line
-	9400 4550 8950 4550
-Wire Wire Line
-	10050 4800 9350 4800
-Wire Wire Line
-	9350 4800 9350 4650
-Wire Wire Line
-	9350 4650 8950 4650
-Wire Wire Line
-	10050 4900 9300 4900
-Wire Wire Line
-	9300 4900 9300 4750
-Wire Wire Line
-	9300 4750 8950 4750
-Wire Wire Line
-	10050 5000 9250 5000
-Wire Wire Line
-	9250 5000 9250 4850
-Wire Wire Line
-	9250 4850 8950 4850
-Wire Wire Line
-	10050 5100 9200 5100
-Wire Wire Line
-	9200 5100 9200 4950
-Wire Wire Line
-	9200 4950 8950 4950
-Wire Wire Line
-	10050 5200 9150 5200
-Wire Wire Line
-	9150 5200 9150 5050
-Wire Wire Line
-	9150 5050 8950 5050
-Wire Wire Line
-	10050 5300 9100 5300
-Wire Wire Line
-	9100 5300 9100 5150
-Wire Wire Line
-	9100 5150 8950 5150
-Wire Wire Line
-	10050 5500 9050 5500
-Wire Wire Line
-	9050 5500 9050 5250
-Wire Wire Line
-	9050 5250 8950 5250
+	10050 5200 9850 5200
 Wire Wire Line
 	7600 4150 7650 4150
 Wire Wire Line
@@ -641,11 +589,6 @@ Wire Wire Line
 Wire Wire Line
 	7650 4850 7650 4150
 Connection ~ 7650 4150
-Wire Wire Line
-	9900 4450 9900 4150
-Wire Wire Line
-	9900 4150 10050 4150
-Connection ~ 9900 4450
 Wire Wire Line
 	1500 1700 1800 1700
 Wire Wire Line
@@ -858,8 +801,6 @@ NoConn ~ 7250 1600
 Wire Wire Line
 	7650 4150 7700 4150
 Wire Wire Line
-	9900 4450 10050 4450
-Wire Wire Line
 	1650 2000 1500 2000
 Wire Wire Line
 	2300 1000 2300 1050
@@ -907,4 +848,85 @@ Wire Wire Line
 	7250 1150 7350 1150
 Wire Wire Line
 	7150 1150 7250 1150
+Wire Wire Line
+	9800 4450 10050 4450
+Text GLabel 9800 4150 0    47   Input ~ 0
+COMD1D2
+Text GLabel 7700 5150 0    47   Input ~ 0
+COMD1D2
+Wire Wire Line
+	7800 5350 7700 5350
+Text GLabel 9800 4050 0    47   Input ~ 0
+COMD3
+Wire Wire Line
+	10050 4150 9800 4150
+Wire Wire Line
+	9800 4050 10050 4050
+Text GLabel 8850 5550 0    47   Input ~ 0
+COMD3
+Wire Wire Line
+	8950 5550 8950 5350
+Wire Wire Line
+	8850 5550 8950 5550
+Wire Wire Line
+	10050 5700 9850 5700
+Wire Wire Line
+	9850 5700 9850 5200
+Wire Wire Line
+	10050 5800 9850 5800
+Wire Wire Line
+	9850 5800 9850 5700
+Connection ~ 9850 5700
+Wire Wire Line
+	8950 5250 9650 5250
+Wire Wire Line
+	9650 5250 9650 4800
+Wire Wire Line
+	9650 4800 10050 4800
+Wire Wire Line
+	10050 5300 9800 5300
+Wire Wire Line
+	9800 5300 9800 5150
+Wire Wire Line
+	9800 5150 8950 5150
+Wire Wire Line
+	10050 4900 9700 4900
+Wire Wire Line
+	9700 4900 9700 4950
+Wire Wire Line
+	9700 4950 8950 4950
+Wire Wire Line
+	8950 4850 9550 4850
+Wire Wire Line
+	9550 4850 9550 5700
+Wire Wire Line
+	9550 5700 9850 5700
+Wire Wire Line
+	8950 4750 9500 4750
+Wire Wire Line
+	9500 4750 9500 5400
+Wire Wire Line
+	9500 5400 10050 5400
+Wire Wire Line
+	9850 4700 9850 5050
+Wire Wire Line
+	9850 4700 10050 4700
+Wire Wire Line
+	8950 5050 9850 5050
+Wire Wire Line
+	9200 5100 9200 4650
+Wire Wire Line
+	9200 4650 8950 4650
+Wire Wire Line
+	9200 5100 10050 5100
+Wire Wire Line
+	10050 5000 9950 5000
+Wire Wire Line
+	9950 5000 9950 4650
+Wire Wire Line
+	9950 4650 9350 4650
+Wire Wire Line
+	9350 4650 9350 4550
+Wire Wire Line
+	9350 4550 8950 4550
 $EndSCHEMATC
