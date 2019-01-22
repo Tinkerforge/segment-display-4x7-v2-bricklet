@@ -3,7 +3,7 @@
   (general
     (thickness 1.6002)
     (drawings 12)
-    (tracks 377)
+    (tracks 375)
     (zones 0)
     (modules 32)
     (nets 35)
@@ -40,7 +40,7 @@
   )
 
   (setup
-    (last_trace_width 0.25)
+    (last_trace_width 0.2)
     (user_trace_width 0.2)
     (user_trace_width 0.25)
     (user_trace_width 0.3)
@@ -7001,8 +7001,6 @@
   (segment (start 50.25 51.05) (end 51.55 51.05) (width 0.25) (layer Vorderseite) (net 6) (tstamp 5B30F4D9))
   (segment (start 51.55 51.05) (end 51.55 49.75) (width 0.25) (layer Vorderseite) (net 6) (tstamp 5B30F4DA))
   (segment (start 51.55 49.75) (end 50.25 49.75) (width 0.25) (layer Vorderseite) (net 6) (tstamp 5B30F4DB))
-  (segment (start 52.38 46.97) (end 51.65 46.97) (width 0.55) (layer Vorderseite) (net 6))
-  (via (at 51.65 46.97) (size 0.55) (drill 0.25) (layers Vorderseite Rückseite) (net 6))
   (segment (start 63.69806 48.01246) (end 64.77754 48.01246) (width 0.55) (layer Vorderseite) (net 6))
   (segment (start 64.77754 48.01246) (end 64.78 48.01) (width 0.55) (layer Vorderseite) (net 6) (tstamp 5B30F6C2))
   (via (at 64.78 48.01) (size 0.55) (drill 0.25) (layers Vorderseite Rückseite) (net 6))
