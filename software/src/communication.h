@@ -1,5 +1,5 @@
 /* segment-display-4x7-v2-bricklet
- * Copyright (C) 2018 Olaf Lüke <olaf@tinkerforge.com>
+ * Copyright (C) 2019 Olaf Lüke <olaf@tinkerforge.com>
  *
  * communication.h: TFP protocol message handling
  *
@@ -53,19 +53,117 @@ void communication_init(void);
 #define SEGMENT_DISPLAY_4X7_V2_STATUS_LED_CONFIG_SHOW_STATUS 3
 
 // Function and callback IDs and structs
+#define FID_SET_SEGMENTS 1
+#define FID_GET_SEGMENTS 2
+#define FID_SET_BRIGHTNESS 3
+#define FID_GET_BRIGHTNESS 4
+#define FID_SET_NUMERIC_VALUE 5
+#define FID_SET_SELECTED_SEGMENT 6
+#define FID_GET_SELECTED_SEGMENTS 7
+#define FID_START_COUNTER 8
+#define FID_GET_COUNTER_VALUE 9
 
+#define FID_CALLBACK_COUNTER_FINISHED 10
 
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t digit0;
+	uint8_t digit1;
+	uint8_t digit2;
+	uint8_t digit3;
+	uint8_t colon;
+	bool tick;
+} __attribute__((__packed__)) SetSegments;
+
+typedef struct {
+	TFPMessageHeader header;
+} __attribute__((__packed__)) GetSegments;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t digit0;
+	uint8_t digit1;
+	uint8_t digit2;
+	uint8_t digit3;
+	uint8_t colon;
+	bool tick;
+} __attribute__((__packed__)) GetSegments_Response;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t brightness;
+} __attribute__((__packed__)) SetBrightness;
+
+typedef struct {
+	TFPMessageHeader header;
+} __attribute__((__packed__)) GetBrightness;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t brightness;
+} __attribute__((__packed__)) GetBrightness_Response;
+
+typedef struct {
+	TFPMessageHeader header;
+	int8_t value[4];
+} __attribute__((__packed__)) SetNumericValue;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t segment;
+	uint8_t value;
+} __attribute__((__packed__)) SetSelectedSegment;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t segment;
+} __attribute__((__packed__)) GetSelectedSegments;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint8_t value;
+} __attribute__((__packed__)) GetSelectedSegments_Response;
+
+typedef struct {
+	TFPMessageHeader header;
+	int16_t value_from;
+	int16_t value_to;
+	int16_t increment;
+	uint32_t length;
+} __attribute__((__packed__)) StartCounter;
+
+typedef struct {
+	TFPMessageHeader header;
+} __attribute__((__packed__)) GetCounterValue;
+
+typedef struct {
+	TFPMessageHeader header;
+	uint16_t value;
+} __attribute__((__packed__)) GetCounterValue_Response;
+
+typedef struct {
+	TFPMessageHeader header;
+} __attribute__((__packed__)) CounterFinished_Callback;
 
 
 // Function prototypes
-
+BootloaderHandleMessageResponse set_segments(const SetSegments *data);
+BootloaderHandleMessageResponse get_segments(const GetSegments *data, GetSegments_Response *response);
+BootloaderHandleMessageResponse set_brightness(const SetBrightness *data);
+BootloaderHandleMessageResponse get_brightness(const GetBrightness *data, GetBrightness_Response *response);
+BootloaderHandleMessageResponse set_numeric_value(const SetNumericValue *data);
+BootloaderHandleMessageResponse set_selected_segment(const SetSelectedSegment *data);
+BootloaderHandleMessageResponse get_selected_segments(const GetSelectedSegments *data, GetSelectedSegments_Response *response);
+BootloaderHandleMessageResponse start_counter(const StartCounter *data);
+BootloaderHandleMessageResponse get_counter_value(const GetCounterValue *data, GetCounterValue_Response *response);
 
 // Callbacks
-
+bool handle_counter_finished_callback(void);
 
 #define COMMUNICATION_CALLBACK_TICK_WAIT_MS 1
-#define COMMUNICATION_CALLBACK_HANDLER_NUM 0
+#define COMMUNICATION_CALLBACK_HANDLER_NUM 1
 #define COMMUNICATION_CALLBACK_LIST_INIT \
+	handle_counter_finished_callback, \
 
 
 #endif

@@ -28,15 +28,18 @@
 #include "bricklib2/hal/system_timer/system_timer.h"
 #include "bricklib2/logging/logging.h"
 #include "communication.h"
+#include "tm1637.h"
 
 int main(void) {
 	logging_init();
 	logd("Start Segment Display 4x7 Bricklet 2.0\n\r");
 
 	communication_init();
+	tm1637_init();
 
 	while(true) {
 		bootloader_tick();
 		communication_tick();
+		tm1637_tick();
 	}
 }
