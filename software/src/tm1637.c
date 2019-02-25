@@ -226,11 +226,11 @@ void tm1637_task_update(void) {
 		0,
 		0,
 		0,
+		0,
 		tm1637.segments[34], // ?
 		tm1637.segments[32], // ?
 		0,
-		tm1637.segments[33], // ?
-		0
+		tm1637.segments[33] // ?
 	);
 
 	data[3] = tm1637_make_data(
