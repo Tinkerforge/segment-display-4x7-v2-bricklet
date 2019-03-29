@@ -1,0 +1,21 @@
+Needs["NETLink`"]
+LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
+
+host="localhost"
+port=4223
+uid="XYZ"(*Change XYZ to the UID of your Segment Display 4x7 Bricklet 2.0*)
+
+(*Create IPConnection and device object*)
+ipcon=NETNew["Tinkerforge.IPConnection"]
+sd=NETNew["Tinkerforge.BrickletSegmentDisplay4x7V2",uid,ipcon]
+ipcon@Connect[host,port]
+
+sd@SetBrightness[7](*Set to full brightness*)
+
+(*Show "- 42" on the Display*)
+sd@SetNumericValue[{-2,-1,4,2}]
+
+(*Clean up*)
+ipcon@Disconnect[]
+ReleaseNETObject[sd]
+ReleaseNETObject[ipcon]

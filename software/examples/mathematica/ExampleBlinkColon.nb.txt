@@ -1,0 +1,32 @@
+Needs["NETLink`"]
+LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
+
+host="localhost"
+port=4223
+uid="XYZ"(*Change XYZ to the UID of your Segment Display 4x7 Bricklet 2.0*)
+
+(*Create IPConnection and device object*)
+ipcon=NETNew["Tinkerforge.IPConnection"]
+sd=NETNew["Tinkerforge.BrickletSegmentDisplay4x7V2",uid,ipcon]
+ipcon@Connect[host,port]
+
+sd@SetBrightness[7](*Set to full brightness*)
+
+(*Blink colon 10 times*)
+For[i=0,i<10,i++,
+
+ (*Activate segments of colon*)
+ sd@SetSelectedSegment[32,True];
+ sd@SetSelectedSegment[33,True];
+
+ Pause[0.25];
+
+ (*Deactivate segments of colon*)
+ sd@SetSelectedSegment[32,False];
+ sd@SetSelectedSegment[33,False]
+]
+
+(*Clean up*)
+ipcon@Disconnect[]
+ReleaseNETObject[sd]
+ReleaseNETObject[ipcon]
