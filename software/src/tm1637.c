@@ -190,6 +190,11 @@ void tm1637_update_counter(void) {
 		digits[0] = -1;
 	}
 
+	// turn off colon and tick
+	tm1637.segments[32] = false;
+	tm1637.segments[33] = false;
+	tm1637.segments[34] = false;
+
 	tm1637_set_digits(digits);
 	tm1637.update = true;
 }
