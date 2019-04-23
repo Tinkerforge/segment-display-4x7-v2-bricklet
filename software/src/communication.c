@@ -38,7 +38,7 @@ BootloaderHandleMessageResponse handle_message(const void *message, void *respon
 		case FID_GET_BRIGHTNESS: return get_brightness(message, response);
 		case FID_SET_NUMERIC_VALUE: return set_numeric_value(message);
 		case FID_SET_SELECTED_SEGMENT: return set_selected_segment(message);
-		case FID_GET_SELECTED_SEGMENTS: return get_selected_segments(message, response);
+		case FID_GET_SELECTED_SEGMENT: return get_selected_segment(message, response);
 		case FID_START_COUNTER: return start_counter(message);
 		case FID_GET_COUNTER_VALUE: return get_counter_value(message, response);
 		default: return HANDLE_MESSAGE_RESPONSE_NOT_SUPPORTED;
@@ -126,12 +126,12 @@ BootloaderHandleMessageResponse set_selected_segment(const SetSelectedSegment *d
 	return HANDLE_MESSAGE_RESPONSE_EMPTY;
 }
 
-BootloaderHandleMessageResponse get_selected_segments(const GetSelectedSegments *data, GetSelectedSegments_Response *response) {
+BootloaderHandleMessageResponse get_selected_segment(const GetSelectedSegment *data, GetSelectedSegment_Response *response) {
 	if(data->segment >= TM1637_SEGMENT_NUM) {
 		return HANDLE_MESSAGE_RESPONSE_INVALID_PARAMETER;
 	}
 
-	response->header.length = sizeof(GetSelectedSegments_Response);
+	response->header.length = sizeof(GetSelectedSegment_Response);
 	response->value         = tm1637.segments[data->segment];
 
 	return HANDLE_MESSAGE_RESPONSE_NEW_MESSAGE;

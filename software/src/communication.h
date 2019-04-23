@@ -59,7 +59,7 @@ void communication_init(void);
 #define FID_GET_BRIGHTNESS 4
 #define FID_SET_NUMERIC_VALUE 5
 #define FID_SET_SELECTED_SEGMENT 6
-#define FID_GET_SELECTED_SEGMENTS 7
+#define FID_GET_SELECTED_SEGMENT 7
 #define FID_START_COUNTER 8
 #define FID_GET_COUNTER_VALUE 9
 
@@ -117,12 +117,12 @@ typedef struct {
 typedef struct {
 	TFPMessageHeader header;
 	bool segment;
-} __attribute__((__packed__)) GetSelectedSegments;
+} __attribute__((__packed__)) GetSelectedSegment;
 
 typedef struct {
 	TFPMessageHeader header;
 	uint8_t value;
-} __attribute__((__packed__)) GetSelectedSegments_Response;
+} __attribute__((__packed__)) GetSelectedSegment_Response;
 
 typedef struct {
 	TFPMessageHeader header;
@@ -153,7 +153,7 @@ BootloaderHandleMessageResponse set_brightness(const SetBrightness *data);
 BootloaderHandleMessageResponse get_brightness(const GetBrightness *data, GetBrightness_Response *response);
 BootloaderHandleMessageResponse set_numeric_value(const SetNumericValue *data);
 BootloaderHandleMessageResponse set_selected_segment(const SetSelectedSegment *data);
-BootloaderHandleMessageResponse get_selected_segments(const GetSelectedSegments *data, GetSelectedSegments_Response *response);
+BootloaderHandleMessageResponse get_selected_segment(const GetSelectedSegment *data, GetSelectedSegment_Response *response);
 BootloaderHandleMessageResponse start_counter(const StartCounter *data);
 BootloaderHandleMessageResponse get_counter_value(const GetCounterValue *data, GetCounterValue_Response *response);
 
