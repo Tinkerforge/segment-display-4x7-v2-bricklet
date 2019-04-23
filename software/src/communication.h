@@ -111,12 +111,12 @@ typedef struct {
 typedef struct {
 	TFPMessageHeader header;
 	uint8_t segment;
-	uint8_t value;
+	bool value;
 } __attribute__((__packed__)) SetSelectedSegment;
 
 typedef struct {
 	TFPMessageHeader header;
-	uint8_t segment;
+	bool segment;
 } __attribute__((__packed__)) GetSelectedSegments;
 
 typedef struct {
