@@ -2,6 +2,6 @@
 
 setup:
 	publish '{"brightness": 7}' to tinkerforge/request/segment_display_4x7_v2_bricklet/XYZ/set_brightness  # Set to full brightness
-	
+
 	# Show "- 42" on the Display
 	publish '{"value": [-2,-1,4,2]}' to tinkerforge/request/segment_display_4x7_v2_bricklet/XYZ/set_numeric_value 

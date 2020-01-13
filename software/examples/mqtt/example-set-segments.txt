@@ -2,6 +2,6 @@
 
 setup:
 	publish '{"brightness": 7}' to tinkerforge/request/segment_display_4x7_v2_bricklet/XYZ/set_brightness  # Set to full brightness
-	
+
 	# Activate all segments
 	publish '{"digit0": [true,true,true,true,true,true,true,true], "digit1": [true,true,true,true,true,true,true,true], "digit2": [true,true,true,true,true,true,true,true], "digit3": [true,true,true,true,true,true,true,true], "colon": [true,true], "tick": true}' to tinkerforge/request/segment_display_4x7_v2_bricklet/XYZ/set_segments 
