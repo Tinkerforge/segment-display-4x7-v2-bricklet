@@ -20,5 +20,5 @@ if __name__ == "__main__":
     # Show "- 42" on the Display
     sd.set_numeric_value([-2, -1, 4, 2])
 
-    raw_input("Press key to exit\n") # Use input() in Python 3
+    input("Press key to exit\n") # Use raw_input() in Python 2
     ipcon.disconnect()
