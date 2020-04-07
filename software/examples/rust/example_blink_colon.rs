@@ -12,19 +12,19 @@ fn main() -> Result<(), Box<dyn Error>> {
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
                                           // Don't use device before ipcon is connected.
 
-    sd.set_brightness(7); // Set to full brightness
+    sd.set_brightness(7).recv()?; // Set to full brightness
 
     // Blink colon 10 times
     for _i in 0..10 {
         // Activate segments of colon
-        sd.set_selected_segment(32, true);
-        sd.set_selected_segment(33, true);
+        sd.set_selected_segment(32, true).recv()?;
+        sd.set_selected_segment(33, true).recv()?;
 
         thread::sleep(Duration::from_millis(250));
 
         // Deactivate segments of colon
-        sd.set_selected_segment(32, false);
-        sd.set_selected_segment(33, false);
+        sd.set_selected_segment(32, false).recv()?;
+        sd.set_selected_segment(33, false).recv()?;
     }
 
     println!("Press enter to exit.");

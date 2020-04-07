@@ -13,7 +13,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
                                           // Don't use device before ipcon is connected.
 
-    sd.set_brightness(7); // Set to full brightness
+    sd.set_brightness(7).recv()?; // Set to full brightness
 
     // Activate all segments
     sd.set_segments(
@@ -23,7 +23,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         [true, true, true, true, true, true, true, true],
         [true, true],
         true,
-    );
+    )
+    .recv()?;
 
     println!("Press enter to exit.");
     let mut _input = String::new();

@@ -13,10 +13,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     ipcon.connect((HOST, PORT)).recv()??; // Connect to brickd.
                                           // Don't use device before ipcon is connected.
 
-    sd.set_brightness(7); // Set to full brightness
+    sd.set_brightness(7).recv()?; // Set to full brightness
 
     // Show "- 42" on the Display
-    sd.set_numeric_value([-2, -1, 4, 2]);
+    sd.set_numeric_value([-2, -1, 4, 2]).recv()?;
 
     println!("Press enter to exit.");
     let mut _input = String::new();
