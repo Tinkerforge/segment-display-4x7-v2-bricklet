@@ -11,7 +11,6 @@ void example_setup(TF_HalContext *hal) {
 	// Create device object
 	check(tf_segment_display_4x7_v2_create(&sd, UID, hal), "create device object");
 
-
 	check(tf_segment_display_4x7_v2_set_brightness(&sd,
 	                                               7), "call set_brightness"); // Set to full brightness
 
@@ -33,7 +32,6 @@ void example_setup(TF_HalContext *hal) {
 		check(tf_segment_display_4x7_v2_set_selected_segment(&sd, 33,
 		                                                     false), "call set_selected_segment");
 	}
-
 }
 
 void example_loop(TF_HalContext *hal) {
